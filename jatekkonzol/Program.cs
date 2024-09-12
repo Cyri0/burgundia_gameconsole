@@ -9,7 +9,7 @@
             }
             Console.WriteLine();
         }
-
+        
         static void Hangman() {
             string[] words = ["HANGMAN", "PIXEL", "MECHWART"];
 
@@ -49,10 +49,48 @@
             Console.WriteLine("Gratulálok, a szó a " + word + " volt!");
         }
 
+        static void DrawMap(char[][] map) {
+            /*
+             0  1  2
+            [ ][ ][ ] 0
+            [ ][ ][ ] 1
+            [ ][ ][ ] 2
+
+                 0       1       2
+             [[0,1,2,3],[0,1,2,3],[0,1,2,3]]
+            */
+            
+            for (int s = 0; s < map.Length; s++) {
+                for(int o = 0; o < map[s].Length; o++)
+                {
+                    Console.Write("[" + map[s][o] + "]");
+                }
+                Console.WriteLine();
+            }
+        }
+
+        static void TicTacToe() {
+            char[][] map = [
+                [' ',' ',' '],
+                [' ',' ',' '],
+                [' ',' ',' ']
+            ];
+
+            DrawMap(map);
+        }
+
         static void Main(string[] args)
         {
             Console.WriteLine("Hello, World!");
-            Hangman();
+            // Hangman();
+            TicTacToe();
+
+            /*
+                 Ez egy
+                 több soros
+                 komment
+                 !!!!
+            */
         }
     }
 }
