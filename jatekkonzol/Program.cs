@@ -95,19 +95,22 @@ namespace jatekkonzol
                 int oszlop = ReadNumber("Oszlop: ");
                 map[sor][oszlop] = player;
 
-                if (player == 'X')
+                //if (player == 'X')
+                //{
+                //    player = 'O';
+                //}
+                //else
+                //{
+                //    player = 'X';
+                //}
+
+                switch (player)
                 {
-                    player = 'O';
-                }
-                else
-                {
-                    player = 'X';
+                    case 'O': player = 'X'; break;
+                    case 'X': player = 'O'; break;
                 }
             }
         }
-        
-        
-        
         static void Controls() {
             Console.WriteLine("(1) - Hangman");
             Console.WriteLine("(2) - TicTacToe");
