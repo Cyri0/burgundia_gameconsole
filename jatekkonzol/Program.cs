@@ -87,7 +87,8 @@ namespace jatekkonzol
                 [' ',' ',' ']
             ];
 
-            while (true) // NAGYON VESZÉLYES, VÉGTELEN CIKLUS
+            bool run = true;
+            while (run)
             {
                 DrawMap(map);
 
@@ -95,15 +96,34 @@ namespace jatekkonzol
                 int oszlop = ReadNumber("Oszlop: ");
                 map[sor][oszlop] = player;
 
-                //if (player == 'X')
-                //{
-                //    player = 'O';
-                //}
-                //else
-                //{
-                //    player = 'X';
-                //}
+                //////////TESZT KEZDETE///////////
+                /*
+                             0  1  2
+                            [ ][ ][ ] 0
+                            [ ][ ][ ] 1
+                            [ ][ ][ ] 2
+                 */
+                for(int s = 0; s < 3; s++)
+                {
+                    if (map[s][0] != ' ' && 
+                        map[s][0] == map[s][1] &&
+                        map[s][1] == map[s][2]) {
+                        run = false;
+                    }
+                    else if (map[0][s] != ' ' &&
+                        map[0][s] == map[1][s] &&
+                        map[1][s] == map[2][s]) {
+                        run = false;
+                    }
+                }
 
+                if(run == false)
+                {
+                    DrawMap(map);
+                    Console.WriteLine(player + " nyert!");
+                }
+
+                //////////TESZT VÉGE/////////////
                 switch (player)
                 {
                     case 'O': player = 'X'; break;
