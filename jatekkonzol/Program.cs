@@ -59,12 +59,14 @@
                  0       1       2
              [[0,1,2,3],[0,1,2,3],[0,1,2,3]]
             */
-            
+
+            Console.WriteLine(" 0  1  2");
             for (int s = 0; s < map.Length; s++) {
                 for(int o = 0; o < map[s].Length; o++)
                 {
                     Console.Write("[" + map[s][o] + "]");
                 }
+                Console.Write(" " + s);
                 Console.WriteLine();
             }
         }
