@@ -81,18 +81,32 @@
         }
 
         static void TicTacToe() {
+            char player = 'X';
+
             char[][] map = [
                 [' ',' ',' '],
                 [' ',' ',' '],
                 [' ',' ',' ']
             ];
 
-            DrawMap(map);
+            while (true) // NAGYON VESZÉLYES, VÉGTELEN CIKLUS
+            {
+                DrawMap(map);
 
-            int sor = ReadNumber("Sor: ");
-            int oszlop = ReadNumber("Oszlop: ");
+                int sor = ReadNumber("Sor: ");
+                int oszlop = ReadNumber("Oszlop: ");
+                map[sor][oszlop] = player;
+
+                if (player == 'X')
+                {
+                    player = 'O';
+                }
+                else
+                {
+                    player = 'X';
+                }
+            }
         }
-
         static void Main(string[] args)
         {
             Console.WriteLine("Hello, World!");
