@@ -1,4 +1,6 @@
-﻿namespace jatekkonzol
+﻿using System.Linq.Expressions;
+
+namespace jatekkonzol
 {
     internal class Program
     {
@@ -9,7 +11,6 @@
             }
             Console.WriteLine();
         }
-        
         static void Hangman() {
             string[] words = ["HANGMAN", "PIXEL", "MECHWART"];
 
@@ -48,7 +49,6 @@
             }
             Console.WriteLine("Gratulálok, a szó a " + word + " volt!");
         }
-
         static void DrawMap(char[][] map) {
             /*
              0  1  2
@@ -70,7 +70,6 @@
                 Console.WriteLine();
             }
         }
-
         static int ReadNumber(string label)
         {
             Console.Write(label);
@@ -79,7 +78,6 @@
             Console.WriteLine();
             return num;
         }
-
         static void TicTacToe() {
             char player = 'X';
 
@@ -107,18 +105,34 @@
                 }
             }
         }
+        
+        
+        
+        static void Controls() {
+            Console.WriteLine("(1) - Hangman");
+            Console.WriteLine("(2) - TicTacToe");
+            Console.WriteLine("(c) - Controls");
+            Console.WriteLine("(x) - Exit");
+        }
+
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
-            // Hangman();
-            TicTacToe();
-
-            /*
-                 Ez egy
-                 több soros
-                 komment
-                 !!!!
-            */
+            Console.WriteLine("Burgundia - The Game Console");
+            bool run = true;
+            while (run)
+            {
+                Console.Write("$: ");
+                char command = Console.ReadKey().KeyChar;
+                Console.WriteLine();
+                switch (command)
+                {
+                    case '1': Hangman(); break;
+                    case '2': TicTacToe(); break;
+                    case 'c': Controls(); break;
+                    case 'x': run = false; break;
+                    default: Console.WriteLine("Nincs ilyen parancs!"); break;
+                }
+            }
         }
     }
 }
