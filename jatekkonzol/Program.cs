@@ -71,6 +71,15 @@
             }
         }
 
+        static int ReadNumber(string label)
+        {
+            Console.Write(label);
+            char numChar = Console.ReadKey().KeyChar;
+            int num = int.Parse("" + numChar);
+            Console.WriteLine();
+            return num;
+        }
+
         static void TicTacToe() {
             char[][] map = [
                 [' ',' ',' '],
@@ -79,6 +88,9 @@
             ];
 
             DrawMap(map);
+
+            int sor = ReadNumber("Sor: ");
+            int oszlop = ReadNumber("Oszlop: ");
         }
 
         static void Main(string[] args)
